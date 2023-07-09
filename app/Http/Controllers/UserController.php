@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function profile(Request $request)
     {
-       $request->session()->flush();
+       //$request->session()->flush();
        //dd(Auth::user());
     }
 }

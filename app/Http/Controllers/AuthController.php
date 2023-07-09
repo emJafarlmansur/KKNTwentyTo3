@@ -40,13 +40,21 @@ return view('login');
         if(Auth::user()->role_id==2){
             return redirect('profile');
         }
-
-
-      
     }
     Session::flash('status', 'error'); // jika akun tidak terdaftar, muncul begini
     Session::flash('message', 'login bermasalahan');
     return redirect('login');
 
+   }
+   public function logout(Request $request) {
+
+    Auth::logout();
+ 
+    $request->session()->invalidate();
+ 
+    $request->session()->regenerateToken();
+ 
+    return redirect('login');
+    
    }
 }
